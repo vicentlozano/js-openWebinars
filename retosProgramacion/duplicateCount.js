@@ -29,7 +29,7 @@ function duplicateCount(text) {
       array.push(text[i]);
     }
   }
-  if(cadena.lenght !== 0){ console.log(intro + cadena);}
+  if(cadena.length !== 0){ console.log(intro + cadena);}
   else{console.log("No se repite ningun caracter");}
 }
 duplicateCount("aaAbcdteeE");
