@@ -7,16 +7,12 @@
  * - Dos palabras exactamente iguales no son anagrama.
  */
 function anagrama(nombre1, nombre2) {
-  if (nombre1.length !== nombre1.length) {
+  if (nombre1.length === nombre2.length) {
     return false;
   }
 
-  for (i = 0; nombre1.length; i++) {
-    if (nombre2.includes(nombre1[i])) {
-      
-    }
-    else {return false;}
-  }
-  return true;
+  let arrpalabra1 = nombre1.split("").sort().join("");
+  let arrpalabra2 = nombre2.split("").sort().join("");
+  return arrpalabra1 === arrpalabra2;
 }
 console.log(anagrama("amar", "rama"));
