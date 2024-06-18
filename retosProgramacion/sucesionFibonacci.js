@@ -11,7 +11,7 @@ function fibonacci(){
     let aux = uno;
     console.log(`este es el numero 1: ${cero}`);
     console.log(`este es el numero 2: ${uno}`);
-    for(i = 1;i-48;i++){
+    for(i = 1;i<49;i++){
         console.log(`este es el numero ${i + 2} : ${cero + uno}`);
         uno = cero + uno;
         cero = aux;
