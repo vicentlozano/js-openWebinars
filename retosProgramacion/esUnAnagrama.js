@@ -7,7 +7,7 @@
  * - Dos palabras exactamente iguales no son anagrama.
  */
 function anagrama(nombre1, nombre2) {
-  if (nombre1.length === nombre2.length) {
+  if (nombre1 === nombre2) {
     return false;
   }
 
