@@ -12,20 +12,24 @@ Example
 "ABBA" -> 2 # 'A' and 'B' each occur twice*/
 
 function duplicateCount(text) {
-  text.toUpperCase();
+  text = text.toUpperCase();
   let count = 0;
   let cadena = "";
+  let array = [];
+  const intro = "La cadena es: "
   for (i = 0; i < text.length; i++) {
     for (j = i + 1; j < text.length; j++) {
-      if (text[i] === text[j]) {
+      if (text[i] === text[j] && !array.includes(text[i])) {
         count++;
       }
     }
     if (count > 0) {
-      cadena.split(`La cadena es: ${text} /n El caracter ${text[i]} aparece ${count} veces. /n`);
+      cadena += `${text} \n El caracter ${text[i]} aparece ${count+1} veces. \n`;
       count = 0;
+      array.push(text[i]);
     }
   }
-  console.log(cadena);
+  if(cadena.lenght !== 0){ console.log(intro + cadena);}
+  else{console.log("No se repite ningun caracter");}
 }
-duplicateCount("aabbcde");
+duplicateCount("aaAbcdteeE");
