@@ -1,4 +1,4 @@
-let town = "Centro";
+let town= "Centro";
 let year = 2023;
 town = "sur";
 let numero = 123;
