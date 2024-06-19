@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script externo</title>
+    <script src = "scriptExterno.js">
+        <!--Normalmente los scripts estaran en el head, pero cuando trabajemos con frameworks o querramos modificar elementos del DOM nos interesa que este en el body. 
+            Porque ? Porque  nos interesa que los elemenots del DOM esten cargados cuando ejecutemos nuestro script, para no provocar errores.
+            No podemos cambiar de sitio un &lt;h3&gt; en el script si aun no se ha cargado en el DOM -->
+    </script>
+</head>
+<body>
+    <h1>HELLO</h1>
+    <script>
+        console.log("esto es un script enbebido");
+        </script>
+</body>
+</html>

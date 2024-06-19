@@ -1,0 +1,11 @@
+Las interfaces del DOM mas usadas:
+
+
+
+Window: resoresenta una ventana que contiene un DOM.
+
+Document: Representa el propio DOM.
+
+Event: Representa un elemento que tiene lugar en el DOM.
+
+Element: Representa un nodo del DOM.
