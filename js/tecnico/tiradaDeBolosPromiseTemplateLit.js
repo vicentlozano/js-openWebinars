@@ -8,7 +8,7 @@
 const tiradaPromise = () =>
   new Promise((resolve, reject) => {
     let numAleatorio = Math.floor(Math.random() * 10);
-    let tiempoTirada = Math.random() * 10000;
+    let tiempoTirada = Math.random() * 1000;
     let error = "no has tirado bolos, error!";
     if (numAleatorio) {
       resolve({ numAleatorio, tiempoTirada });
@@ -19,22 +19,16 @@ const tiradaPromise = () =>
 
 const asyncFunction = async () => {
   console.log("Ejecucion...");
-  await tiradaPromise();
-  console.log("Ejecucion finalizada...");
-};
-asyncFunction();
-tiradaPromise().then(
-  (resultado) => {
-    console.log(
-      resultado.numAleatorio == 9
-        ? `Strike!!!`
-        : `Has tirado ${resultado.numAleatorio} bolos, en un tiempo de ${resultado.tiempoTirada}`
-    );
-  },
-  (error) => {
-    console.log(error.error, error.tiempoTirada);
-  }
+  try{
+  const resultof = await tiradaPromise();
+  console.log(resultof.numAleatorio == 9
+  ? `Strike!!!`
+  : `Has tirado ${resultof.numAleatorio} bolos, en un tiempo de ${resultof.tiempoTirada}`
 );
+  console.log("Ejecucion finalizada...");
+} catch (error) {console.log(error.error, error.tiempoTirada);}};
+asyncFunction();
+
 
 // Hay que comentar que en las promesas solo podremos pasar un argumentio, es decior, que si queremos que el then devuelva dos variables tenemos que pasarlo como objeto
 

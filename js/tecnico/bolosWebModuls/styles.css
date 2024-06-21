@@ -1,0 +1,22 @@
+.playhost{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.player1, .player2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.imagePlayer1, .imagePlayer2 {
+height: 500px;
+width: 500px;
+object-fit: contain;
+padding: 50px;
+}
+
+.resultPlayer1 .resultPlayer2{
+    display: none;
+}
