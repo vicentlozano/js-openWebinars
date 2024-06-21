@@ -18,15 +18,15 @@ let tiradaPromise = new Promise((resolve, reject) => {
 });
 
 tiradaPromise.then(
-  ({numAleatorio, tiempoTirada}) => {
+  resultado => {
     console.log(
-      numAleatorio == 9
+      resultado.numAleatorio == 9
         ? `Strike!!!`
-        : `Has tirado ${numAleatorio} bolos, en un tiempo de ${tiempoTirada}`
+        : `Has tirado ${resultado.numAleatorio} bolos, en un tiempo de ${resultado.tiempoTirada}`
     );
   },
-  ({error, tiempoTirada}) => {
-    console.log(error, tiempoTirada);
+  error => {
+    console.log(error.error, error.tiempoTirada);
   }
 );
 
