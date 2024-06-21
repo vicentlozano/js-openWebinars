@@ -5,30 +5,37 @@
  * La salida debe ser por consola
  */
 
-let tiradaPromise = new Promise((resolve, reject) => {
-  let numAleatorio = Math.floor(Math.random() * 10);
-  let tiempoTirada = Math.random() * 2000;
-  console.log(tiempoTirada);
-  let error = "no has tirado bolos, error!";
-  if (numAleatorio) {
-    setTimeout(() => resolve({numAleatorio, tiempoTirada}), tiempoTirada);
-  } else {
-    setTimeout(() => reject({error, tiempoTirada}), tiempoTirada);
-  }
-});
+const tiradaPromise = () =>
+  new Promise((resolve, reject) => {
+    let numAleatorio = Math.floor(Math.random() * 10);
+    let tiempoTirada = Math.random() * 10000;
+    let error = "no has tirado bolos, error!";
+    if (numAleatorio) {
+      resolve({ numAleatorio, tiempoTirada });
+    } else {
+      setTimeout(() => reject({ error, tiempoTirada }), tiempoTirada);
+    }
+  });
 
-tiradaPromise.then(
-  resultado => {
+const asyncFunction = async () => {
+  console.log("Ejecucion...");
+  await tiradaPromise();
+  console.log("Ejecucion finalizada...");
+};
+asyncFunction();
+tiradaPromise().then(
+  (resultado) => {
     console.log(
       resultado.numAleatorio == 9
         ? `Strike!!!`
         : `Has tirado ${resultado.numAleatorio} bolos, en un tiempo de ${resultado.tiempoTirada}`
     );
   },
-  error => {
+  (error) => {
     console.log(error.error, error.tiempoTirada);
   }
 );
 
-
 // Hay que comentar que en las promesas solo podremos pasar un argumentio, es decior, que si queremos que el then devuelva dos variables tenemos que pasarlo como objeto
+
+// Muy importante el uso de await en nuestra funcion async ... la ejecucion de la funcion async no terminara hasta despues de que la promesa se haya ejecutado!!
