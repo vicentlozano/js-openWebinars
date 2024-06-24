@@ -18,9 +18,9 @@ export const asyncFunction = async () => {
     console.log(error.error, error.tiempoTirada);
   }
 };
-
-export const endGame = (throws1, throws2, arrayP1, arrayP2) => {
-  if (throws1 == 5 && throws2 == 5) {
+export const endGame = (button1, button2, arrayP1, arrayP2) => {
+  if (button1.disabled && button2.disabled) {
+    // Corregido para verificar correctamente si ambos botones están deshabilitados
     let winLost1 = 0;
     let winLost2 = 0;
     for (let element of arrayP1) {
